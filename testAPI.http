@@ -4,11 +4,11 @@ GET https://kasir-go-learn-production.up.railway.app/health
 Accept: application/json
 
 ### GET Products
-GET http://localhost:8888/api/product
+GET https://kasir-go-learn-production.up.railway.app/api/product
 Accept: application/json
 
 ### Get product by ID
-GET http://localhost:8888/api/product/2
+GET http://localhost:8888/api/product/1
 Accept: application/json
 
 ### POST Create Product
@@ -18,7 +18,8 @@ Content-Type: application/json
 {
   "name": "Television",
   "price": 8000000,
-  "stock": 30
+  "stock": 30,
+  "category_id": 1
 }
 
 ### PUT Update Product
@@ -28,7 +29,9 @@ Content-Type: application/json
 {
   "name": "Gaming Laptop",
   "price": 25000000,
-  "stock": 15
+  "stock": 15,
+  "category_id": 1,
+  "category_name": "Electronics"
 }
 
 ### DELETE Product
@@ -49,8 +52,7 @@ POST http://localhost:8888/api/category
 Content-Type: application/json
 
 {
-  "name": "Electronics",
-  "description": "Devices and gadgets"
+  "name": "Electronics"
 }
 
 ### PUT Update Category
@@ -58,8 +60,7 @@ PUT http://localhost:8888/api/category/1
 Content-Type: application/json
 
 {
-  "name": "Gaming Electronics",
-  "description": "Devices and gadgets for gaming"
+  "name": "Gaming Electronics"
 }
 
 ### DELETE Category
