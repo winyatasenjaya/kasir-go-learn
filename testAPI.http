@@ -1,5 +1,6 @@
 ### GET Health
-GET http://localhost:8888/health
+# GET http://localhost:8888/health
+GET https://kasir-go-learn-production.up.railway.app/health
 Accept: application/json
 
 ### GET Products

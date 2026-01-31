@@ -17,8 +17,8 @@ import (
 )
 
 type Config struct {
-	Port string `mapstructure:"port"`
-	DBConnectionString string `mapstructure:"db_connection_string"`
+	Port string `mapstructure:"PORT"`
+	DBConnectionString string `mapstructure:"DB_CONN"`
 }
 
 func main() {
@@ -32,8 +32,8 @@ func main() {
 	}
 
 	configEnv := Config{
-		Port:  viper.GetString("port"),
-		DBConnectionString: viper.GetString("db_connection_string"),
+		Port:  viper.GetString("PORT"),
+		DBConnectionString: viper.GetString("DB_CONN"),
 	}
 
 	// Initialize database
