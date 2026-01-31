@@ -347,6 +347,21 @@ The API comes pre-loaded with sample data:
 
 ⚠️ **Important**: This API uses in-memory storage. All data will be reset when the server restarts. For persistent storage, consider integrating a database like PostgreSQL, MySQL, or MongoDB.
 
+## Future Improvements
+
+- [ ] Add database integration for persistent storage
+- [ ] Implement authentication and authorization
+- [ ] Add pagination for list endpoints
+- [ ] Implement search and filtering
+- [ ] Add input validation
+- [ ] Add unit and integration tests
+- [ ] Implement logging middleware
+- [ ] Add API rate limiting
+
 ## License
 
 This project is open source and available under the [MIT License](LICENSE).
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.

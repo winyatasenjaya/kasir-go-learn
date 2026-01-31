@@ -7,7 +7,7 @@ GET http://localhost:8888/api/product
 Accept: application/json
 
 ### Get product by ID
-GET http://localhost:8888/api/product/1
+GET http://localhost:8888/api/product/2
 Accept: application/json
 
 ### POST Create Product
@@ -15,9 +15,9 @@ POST http://localhost:8888/api/product
 Content-Type: application/json
 
 {
-  "nama": "Headphones",
-  "harga": 2000000,
-  "stok": 30
+  "name": "Television",
+  "price": 8000000,
+  "stock": 30
 }
 
 ### PUT Update Product
@@ -25,9 +25,9 @@ PUT http://localhost:8888/api/product/1
 Content-Type: application/json
 
 {
-  "nama": "Gaming Laptop",
-  "harga": 25000000,
-  "stok": 15
+  "name": "Gaming Laptop",
+  "price": 25000000,
+  "stock": 15
 }
 
 ### DELETE Product
