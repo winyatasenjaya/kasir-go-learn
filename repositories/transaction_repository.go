@@ -4,6 +4,7 @@ import (
 	"database/sql"
 	"fmt"
 	"kasir-api/models"
+	"strings"
 )
 
 type TransactionRepository struct {
@@ -58,10 +59,27 @@ func (repo *TransactionRepository) CreateTransaction(items []models.CheckoutItem
 		return nil, err
 	}
 
-	for i := range details {
-		details[i].TransactionID = transactionID
-		_, err = tx.Exec("INSERT INTO transaction_details (transaction_id, product_id, quantity, subtotal) VALUES ($1, $2, $3, $4)",
-			transactionID, details[i].ProductID, details[i].Quantity, details[i].Subtotal)
+	// Bulk insert transaction details
+	if len(details) > 0 {
+		var sb strings.Builder
+		sb.WriteString("INSERT INTO transaction_details (transaction_id, product_id, quantity, subtotal) VALUES ")
+		
+		args := make([]interface{}, 0, len(details)*4)
+		placeholders := make([]string, 0, len(details))
+		
+		for i := range details {
+			details[i].TransactionID = transactionID
+			
+			paramOffset := i * 4
+			placeholders = append(placeholders, fmt.Sprintf("($%d, $%d, $%d, $%d)", 
+				paramOffset+1, paramOffset+2, paramOffset+3, paramOffset+4))
+			
+			args = append(args, transactionID, details[i].ProductID, details[i].Quantity, details[i].Subtotal)
+		}
+		
+		sb.WriteString(strings.Join(placeholders, ", "))
+		
+		_, err = tx.Exec(sb.String(), args...)
 		if err != nil {
 			return nil, err
 		}

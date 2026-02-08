@@ -8,22 +8,22 @@ GET https://kasir-go-learn-production.up.railway.app/api/product
 Accept: application/json
 
 ### Get product by ID
-GET http://localhost:8888/api/product/1
+GET https://kasir-go-learn-production.up.railway.app/api/product/1
 Accept: application/json
 
 ### POST Create Product
-POST http://localhost:8888/api/product
+POST https://kasir-go-learn-production.up.railway.app/api/product
 Content-Type: application/json
 
 {
-  "name": "Television",
-  "price": 8000000,
-  "stock": 30,
+  "name": "Kulkas 2 pintu",
+  "price": 2000000,
+  "stock": 50,
   "category_id": 1
 }
 
 ### PUT Update Product
-PUT http://localhost:8888/api/product/1 
+PUT https://kasir-go-learn-production.up.railway.app/api/product/1 
 Content-Type: application/json
 
 {
@@ -40,15 +40,15 @@ Accept: application/json
 
 // Categories
 ### GET Categories
-GET http://localhost:8888/api/category
+GET https://kasir-go-learn-production.up.railway.app/api/category
 Accept: application/json  
 
 ### Get category by ID
-GET http://localhost:8888/api/category/1
+GET https://kasir-go-learn-production.up.railway.app/api/category/1
 Accept: application/json    
 
 ### POST Create Category
-POST http://localhost:8888/api/category
+POST https://kasir-go-learn-production.up.railway.app/api/category
 Content-Type: application/json
 
 {
@@ -66,3 +66,35 @@ Content-Type: application/json
 ### DELETE Category
 DELETE http://localhost:8888/api/category/4
 Accept: application/json    
+
+
+// Transactions
+### POST Checkout - Multiple Items
+POST http://localhost:8888/api/checkout
+Content-Type: application/json
+
+{
+  "items": [
+    {
+      "product_id": 1,
+      "quantity": 1
+    },
+    {
+      "product_id": 2,
+      "quantity": 1
+    },
+    {
+      "product_id": 3,
+      "quantity": 1
+    }
+  ]
+}
+
+// Reports
+### GET Daily Report (Hari Ini)
+GET http://localhost:8888/api/report/hari-ini
+Accept: application/json
+
+### GET Report with Date Range
+GET http://localhost:8888/api/report?start_date=2025-01-01&end_date=2025-02-28
+Accept: application/json
