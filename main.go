@@ -43,20 +43,6 @@ func main() {
 	}
 	defer db.Close()
 
-	// Initialize repositories
-	// productRepo := memory.NewProductRepository()
-	// categoryRepo := memory.NewCategoryRepository()
-
-	// Initialize use cases
-	// productUseCase := usecase.NewProductUseCase(productRepo)
-	// categoryUseCase := usecase.NewCategoryUseCase(categoryRepo)
-
-	// Initialize handler
-	// handler := httpDelivery.NewHandler(productUseCase, categoryUseCase)
-
-	// Setup routes
-	// router := httpDelivery.SetupRoutes(handler)
-
 	productRepo := repositories.NewProductRepository(db)
 	productService := services.NewProductService(productRepo)
 	productHandler := handlers.NewProductHandler(productService)

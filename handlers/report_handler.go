@@ -56,6 +56,7 @@ func (h *ReportHandler) HandleReport(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// parsing string ke time.Time untuk startDate dan endDate
 	startDate, err := time.Parse("2006-01-02", startDateStr)
 	if err != nil {
 		http.Error(w, "Invalid start_date format. Use YYYY-MM-DD", http.StatusBadRequest)
