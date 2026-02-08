@@ -56,13 +56,13 @@ func (h *ReportHandler) HandleReport(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	startDate, err := time.Parse("2006-12-01", startDateStr)
+	startDate, err := time.Parse("2006-01-02", startDateStr)
 	if err != nil {
 		http.Error(w, "Invalid start_date format. Use YYYY-MM-DD", http.StatusBadRequest)
 		return
 	}
 
-	endDate, err := time.Parse("2006-12-01", endDateStr)
+	endDate, err := time.Parse("2006-01-02", endDateStr)
 	if err != nil {
 		http.Error(w, "Invalid end_date format. Use YYYY-MM-DD", http.StatusBadRequest)
 		return
